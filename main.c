@@ -10,14 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx/mlx.h"
+#include "so_long.h"
 
-int main(void)
+int main(int argc, char **argv)
 {
-    void *mlx;
-   // void *exp;
-    
-    mlx = mlx_init();  // Établit connexion au système graphique
-    mlx_new_window(mlx, 1920, 1080, "Hello world!");  // Crée fenêtre
-    mlx_loop(mlx);     // Lance le rendu de la fenêtre
+    if (argc == 2)
+    {
+        char *dot = ft_strrchr(argv[1], '.');
+        if (!dot || ft_strncmp(dot, ".ber", 4) != 0)
+        {
+            printf("Le fichier n'est pas un fichier .ber\n");
+            return (1);
+        }
+        
+        void *mlx;
+       // void *exp;
+        mlx = mlx_init();  // Établit connexion au système graphique
+        mlx_new_window(mlx, 1920, 1080, "Hello world!");  // Crée fenêtre
+        mlx_loop(mlx);     // Lance le rendu de la fenêtre
+        /* code */
+    }
+    else {
+        printf("error\n");
+        return (1);
+    }
+    return (0);
 }

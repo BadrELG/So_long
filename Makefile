@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    MAKEFILE                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: badr <badr@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/06 09:55:00 by badr              #+#    #+#              #
-#    Updated: 2025/08/18 00:37:53 by badr             ###   ########.fr        #
+#    Updated: 2025/08/18 03:36:06 by badr             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-SRCS = test.c
+SRCS = main.c src/parsing/map_parsing.c src/parsing/map_validation.c src/parsing/map_borders.c src/parsing/map_logic.c src/error/error_handler.c
 
 OBJS = ${SRCS:.c=.o}
 
