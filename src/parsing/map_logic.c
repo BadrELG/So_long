@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../so_long.h"
 
 /**
  * Compte les éléments essentiels de la carte : joueurs (P), sorties (E) et collectibles (C)

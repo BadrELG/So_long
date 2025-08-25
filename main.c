@@ -14,25 +14,77 @@
 
 int main(int argc, char **argv)
 {
-    if (argc == 2)
-    {
-        char *dot = ft_strrchr(argv[1], '.');
-        if (!dot || ft_strncmp(dot, ".ber", 4) != 0)
-        {
-            printf("Le fichier n'est pas un fichier .ber\n");
-            return (1);
-        }
-        
-        void *mlx;
-       // void *exp;
-        mlx = mlx_init();  // Établit connexion au système graphique
-        mlx_new_window(mlx, 1920, 1080, "Hello world!");  // Crée fenêtre
-        mlx_loop(mlx);     // Lance le rendu de la fenêtre
-        /* code */
-    }
-    else {
-        printf("error\n");
+    t_game game;
+    
+    if (argc != 2)
         return (1);
-    }
+        
+    // Initialiser la structure
+    ft_memset(&game, 0, sizeof(t_game));
+    
+    // Charger la carte
+    printf("1. debut main\n");
+    game.map = read_map_file(argv[1]);
+    game.width = get_map_width(game.map);
+    game.height = get_map_height(game.map);
+    printf("2. carte chargee\n");
+
+    // Valider la carte
+    if (!validate_complete_map(game.map))
+        error_exit("Carte invalide");
+    printf("3. carte validee\n");
+
+    setup_player_and_collectibles(&game);
+    printf("4. joueur et collectibles configures\n");
+    // Initialiser les graphiques
+    init_graphics(&game);
+    printf("5. graphiques initialises\n");
+    // Afficher la carte
+    render_map(&game);
+    
+    // Lancer la boucle
+    mlx_loop(game.mlx);
+    
     return (0);
+}
+
+int validate_complete_map(char **map)
+{
+    if (!validate_map_characters(map))
+        return (0);
+    if (!validate_map_shape(map))
+        return (0);
+    if (!validate_map_borders(map))
+        return (0);
+    if (!validate_map_logic(map))
+        return (0);
+    return (1);
+}
+
+void setup_player_and_collectibles(t_game *game)
+{
+    int y;
+    int x;
+    int players;
+    int exits;
+    int collectibles; 
+
+    y = 0;
+    count_map_elements(game->map, &players, &exits, &collectibles);
+    while (game->map[y])
+    {
+        x = 0;
+        while (game->map[y][x])
+        {
+            if (game->map[y][x] == 'P')
+            {
+                game->player_x = x;
+                game->player_y = y;
+                break;
+            }
+            x++;
+        }
+        y++;
+    }
+    game->collectibles = collectibles;
 }

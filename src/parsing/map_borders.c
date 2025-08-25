@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../so_long.h"
 
 /**
  * Valide que les murs du haut et du bas de la carte sont entièrement composés de '1'

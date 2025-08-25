@@ -1,9 +1,20 @@
-#include "mlx.h"
-#include "libft.h"
+#include "mlx/mlx.h"
+#include "libft/libft.h"
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+#ifndef TILE_SIZE
+#define TILE_SIZE 64
+#endif
+typedef struct s_sprites {
+    void *wall;
+    void *floor;
+    void *player;
+    void *collect;
+    void *exit;
+} t_sprites;
 
 typedef struct s_game {
     void    *mlx;
@@ -15,7 +26,9 @@ typedef struct s_game {
     int     player_y;
     int     collectibles;
     int     moves;
+    t_sprites   sprites;
 } t_game;
+
 
 /* ************************************************************************** */
 /*                               PROTOTYPES                                  */
@@ -41,7 +54,17 @@ int     validate_map_borders(char **map);
 /* Logic validation functions */
 void    count_map_elements(char **map, int *players, int *exits, int *collectibles);
 int     validate_map_logic(char **map);
+int     validate_complete_map(char **map);
 
 /* Error handling functions */
 void    error_exit(char *message);
 void    error_free_and_exit(char **map, char *message);
+
+/* Graphics functions */
+int     load_sprites(t_game *game);
+void    free_sprites(t_game *game);
+void     init_graphics(t_game *game);
+void    render_map(t_game *game);
+
+/// charger joueur et collectibles
+void    setup_player_and_collectibles(t_game *game);

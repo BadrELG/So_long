@@ -1,4 +1,4 @@
-#include "so_long.h"
+#include "../../so_long.h"
 
 /**
  * Lit et parse un fichier de carte (.ber)
@@ -85,8 +85,6 @@ int is_valid_line(char *line)
         return (0);
     len = ft_strlen(line);
     if (len <= 1)
-        return (0);
-    if (line[len - 1] != '\n' && len > 1)
         return (0);
     return (1);
 }

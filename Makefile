@@ -15,7 +15,15 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-SRCS = main.c src/parsing/map_parsing.c src/parsing/map_validation.c src/parsing/map_borders.c src/parsing/map_logic.c src/error/error_handler.c
+SRCS = main.c \
+src/parsing/map_parsing.c \
+src/parsing/map_validation.c \
+src/parsing/map_borders.c \
+src/parsing/map_logic.c \
+src/error/error_handler.c \
+src/graphics/graphics_init.c \
+src/graphics/map_renderer.c \
+src/graphics/sprites_loader.c \
 
 OBJS = ${SRCS:.c=.o}
 
