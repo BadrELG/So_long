@@ -24,6 +24,7 @@ src/error/error_handler.c \
 src/graphics/graphics_init.c \
 src/graphics/map_renderer.c \
 src/graphics/sprites_loader.c \
+src/graphics/window_manager.c \
 
 OBJS = ${SRCS:.c=.o}
 

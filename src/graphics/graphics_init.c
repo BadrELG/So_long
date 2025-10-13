@@ -10,4 +10,5 @@ void init_graphics(t_game *game)
         error_exit("Failed to create window");
     if (!load_sprites(game))
         error_exit("Failed to load sprites");
+    setup_hooks(game);
 }

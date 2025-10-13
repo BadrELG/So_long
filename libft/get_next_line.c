@@ -15,21 +15,24 @@
 static char	*read_line(int fd, char *stash, char *buffer)
 {
 	int	bytes_read;
+	char *old_stash;
 
 	bytes_read = 1;
-	while (!(ft_strchr(stash, '\n') && bytes_read > 0))
+	while (bytes_read > 0 && !ft_strchr(stash, '\n'))
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
-			free(buffer);
-			free(stash);
+			g_free(buffer);
+			g_free(stash);
 			return (NULL);
 		}
 		else if (bytes_read == 0)
 			break ;
 		buffer[bytes_read] = '\0';
+		old_stash = stash;
 		stash = ft_strjoin(stash, buffer);
+		g_free(old_stash);
 		if (!stash)
 			return (NULL);
 	}

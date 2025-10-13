@@ -66,5 +66,11 @@ void    free_sprites(t_game *game);
 void     init_graphics(t_game *game);
 void    render_map(t_game *game);
 
+/* Window management functions */
+int     key_hook(int keycode, t_game *game);
+int     close_hook(t_game *game);
+void    close_game(t_game *game);
+void    setup_hooks(t_game *game);
+
 /// charger joueur et collectibles
 void    setup_player_and_collectibles(t_game *game);

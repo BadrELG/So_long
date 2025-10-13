@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badr <badr@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 21:28:51 by badr              #+#    #+#             */
-/*   Updated: 2025/07/29 22:01:08 by badr             ###   ########.fr       */
+/*   Updated: 2025/10/03 20:39:42 by badr             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main(int argc, char **argv)
     game.map = read_map_file(argv[1]);
     game.width = get_map_width(game.map);
     game.height = get_map_height(game.map);
+    // Après le chargement de la carte
     printf("2. carte chargee\n");
 
     // Valider la carte
@@ -39,9 +40,11 @@ int main(int argc, char **argv)
     // Initialiser les graphiques
     init_graphics(&game);
     printf("5. graphiques initialises\n");
-    // Afficher la carte
+
+    // Dessiner la carte initiale AVANT la boucle
     render_map(&game);
-    
+    printf("6. carte rendue\n");
+
     // Lancer la boucle
     mlx_loop(game.mlx);
     

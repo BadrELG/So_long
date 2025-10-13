@@ -36,7 +36,7 @@ char **read_map_file(char *filename)
     }
     close(fd);
     map = create_map_array(lines);
-    ft_lstclear(&lines, NULL);
+    ft_lstclear(&lines, free); // Utiliser free pour nettoyer le contenu de la liste
     return (map);
 }
 
@@ -64,7 +64,15 @@ char **create_map_array(t_list *lines)
     i = 0;
     while (i < count)
     {
-        map[i] = current->content;
+        map[i] = ft_strdup(current->content);
+        if (!map[i])
+        {
+            // En cas d'échec de ft_strdup, libérer ce qui a déjà été alloué
+            while (--i >= 0)
+                free(map[i]);
+            free(map);
+            error_exit("Error\nMemory allocation failed during map creation\n");
+        }
         current = current->next;
         i++;
     }
