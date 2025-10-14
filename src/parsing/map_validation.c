@@ -6,7 +6,7 @@
 /*   By: badr <badr@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 00:00:00 by badr              #+#    #+#             */
-/*   Updated: 2025/08/22 00:00:00 by badr             ###   ########.fr       */
+/*   Updated: 2025/10/14 16:28:42 by badr             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,18 @@ int	validate_map_characters(char **map)
 
 /**
  * Calcule la largeur de la carte en caractères
- * Utilise la première ligne comme référence et soustrait 1 pour exclure '\n'
+ * Gère automatiquement la présence ou l'absence du \n
  */
 int	get_map_width(char **map)
 {
+	int	len;
+
 	if (!map || !map[0])
 		return (0);
-	return (ft_strlen(map[0]) - 1);
+	len = ft_strlen(map[0]);
+	if (len > 0 && map[0][len - 1] == '\n')
+		return (len - 1);
+	return (len);
 }
 
 int	get_map_height(char **map)
@@ -87,7 +92,9 @@ int	validate_map_shape(char **map)
 	y = 0;
 	while (map[y])
 	{
-		current_width = ft_strlen(map[y]) - 1;
+		current_width = ft_strlen(map[y]);
+		if (current_width > 0 && map[y][current_width - 1] == '\n')
+			current_width--;
 		if (current_width != width)
 			return (0);
 		y++;
