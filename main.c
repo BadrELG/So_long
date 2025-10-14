@@ -6,7 +6,7 @@
 /*   By: badr <badr@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 21:28:51 by badr              #+#    #+#             */
-/*   Updated: 2025/10/03 20:39:42 by badr             ###   ########.fr       */
+/*   Updated: 2025/10/14 16:46:36 by badr             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int validate_complete_map(char **map)
     if (!validate_map_borders(map))
         return (0);
     if (!validate_map_logic(map))
+        return (0);
+    if (!validate_path(map))
         return (0);
     return (1);
 }

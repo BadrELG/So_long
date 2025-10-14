@@ -6,7 +6,7 @@
 #    By: badr <badr@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/06 09:55:00 by badr              #+#    #+#              #
-#    Updated: 2025/08/18 03:36:06 by badr             ###   ########.fr        #
+#    Updated: 2025/10/14 16:46:38 by badr             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ src/parsing/map_parsing.c \
 src/parsing/map_validation.c \
 src/parsing/map_borders.c \
 src/parsing/map_logic.c \
+src/parsing/flood_fill.c \
 src/error/error_handler.c \
 src/graphics/graphics_init.c \
 src/graphics/map_renderer.c \
