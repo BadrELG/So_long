@@ -83,6 +83,11 @@ Libft est une bibliothèque C qui recrée un ensemble de fonctions standard de l
 - `ft_tab_free` : Libération de tableaux
 - `garbage` : Système de gestion automatique de la mémoire
 
+#### Utilitaires Avancés
+- `ft_sort_int_tab` : Trie un tableau d'entiers par ordre croissant
+- `ft_tabstr_free` : Libère un tableau de chaînes (char **) alloué dynamiquement
+- `ft_atoi_safe` : Conversion chaîne vers entier avec détection d'overflow INT_MAX/INT_MIN
+
 ## 🚀 Compilation
 
 ```bash
@@ -102,7 +107,7 @@ int main(void)
 {
     char *str = ft_strdup("Hello, World!");
     ft_putendl_fd(str, 1);
-    ft_free(str);
+    g_free(str);
     return (0);
 }
 ```

@@ -57,9 +57,6 @@ int     validate_map_logic(char **map);
 int     validate_complete_map(char **map);
 
 /* Pathfinding validation functions */
-char	**copy_map(char **map);
-void	free_map(char **map);
-void	flood_fill(char **map_copy, int x, int y, int *collectibles, int *exit_found);
 int		validate_path(char **map);
 
 /* Error handling functions */

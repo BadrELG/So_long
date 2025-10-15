@@ -6,7 +6,7 @@
 /*   By: badr <badr@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 13:36:43 by bael-gho          #+#    #+#             */
-/*   Updated: 2025/08/09 21:54:24 by badr             ###   ########.fr       */
+/*   Updated: 2025/10/15 14:29:08 by badr             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
 char		*ft_strdup(const char *s1);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
-char		*ft_substr(char const *str, unsigned int start, size_t len);
-char		*ft_strjoin(char *s1, char *s2);
+char		*ft_substr(char const *s, unsigned int start, size_t len);
+char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);
 char		**ft_split(const char *s, char c);
 char		*ft_itoa(int n);
@@ -112,5 +112,8 @@ t_garbage	*get_garbage(t_garbage *update, int reset);
 void		*g_malloc(size_t size);
 void		garbage_destroy(void);
 void		g_free(void *ptr);
+
+/// Additional Utility Functions
+void		ft_tabstr_free(char **split);
 
 #endif

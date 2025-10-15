@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badr <badr@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 13:26:15 by bael-gho          #+#    #+#             */
-/*   Updated: 2025/08/07 15:04:59 by badr             ###   ########.fr       */
+/*   Created: 2025/10/08 15:40:00 by badr              #+#    #+#             */
+/*   Updated: 2025/10/15 14:11:01 by badr             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+/*
+** Trie un tableau d'entiers par ordre croissant (bubble sort).
+** 
+** Paramètres:
+**   tab  - tableau d'entiers à trier
+**   size - taille du tableau
+*/
+void	ft_sort_int_tab(int *tab, int size)
 {
-	int		i;
-	int		j;
-	char	*str;
+	int	i;
+	int	j;
+	int	tmp;
 
 	i = 0;
-	j = 0;
-	str = (char *)g_malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!str || !s1 || !s2)
-		return (NULL);
-	while (s1[i] != '\0')
+	while (i < size - 1)
 	{
-		str[i] = s1[i];
+		j = 0;
+		while (j < size - i - 1)
+		{
+			if (tab[j] > tab[j + 1])
+			{
+				tmp = tab[j];
+				tab[j] = tab[j + 1];
+				tab[j + 1] = tmp;
+			}
+			j++;
+		}
 		i++;
 	}
-	while (s2[j] != '\0')
-	{
-		str[i + j] = s2[j];
-		j++;
-	}
-	str[i + j] = '\0';
-	return (str);
 }
