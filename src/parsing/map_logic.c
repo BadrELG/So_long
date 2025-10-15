@@ -6,18 +6,19 @@
 /*   By: badr <badr@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 00:00:00 by badr              #+#    #+#             */
-/*   Updated: 2025/08/22 00:00:00 by badr             ###   ########.fr       */
+/*   Updated: 2025/10/15 15:03:19 by badr             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
 /**
- * Compte les éléments essentiels de la carte : joueurs (P), sorties (E) et collectibles (C)
- * Parcourt toute la carte et incrémente les compteurs correspondants
- * Utilisé pour valider la logique du jeu (1 joueur, 1 sortie, au moins 1 collectible)
+ * Compte les éléments de la carte : joueurs (P), sorties (E), collectibles (C)
+ * Parcourt toute la carte et incrémente les compteurs
+ * Utilisé pour valider (1 joueur, 1 sortie, au moins 1 collectible)
  */
-void	count_map_elements(char **map, int *players, int *exits, int *collectibles)
+void	count_map_elements(char **map, int *players, int *exits,
+	int *collectibles)
 {
 	int	y;
 	int	x;
@@ -45,7 +46,7 @@ void	count_map_elements(char **map, int *players, int *exits, int *collectibles)
 
 /**
  * Valide la logique de base du jeu sur la carte
- * Vérifie qu'il y a exactement 1 joueur (P), 1 sortie (E) et au moins 1 collectible (C)
+ * Vérifie 1 joueur (P), 1 sortie (E) et au moins 1 collectible (C)
  * Ces conditions sont nécessaires pour qu'une partie soit jouable
  */
 int	validate_map_logic(char **map)

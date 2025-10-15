@@ -6,16 +6,16 @@
 /*   By: badr <badr@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 00:00:00 by badr              #+#    #+#             */
-/*   Updated: 2025/08/22 00:00:00 by badr             ###   ########.fr       */
+/*   Updated: 2025/10/15 15:01:05 by badr             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
 /**
- * Valide que les murs du haut et du bas de la carte sont entièrement composés de '1'
- * Parcourt la première ligne (y=0) et la dernière ligne (y=height-1) pour vérifier
- * que chaque case contient un mur ('1')
+ * Valide que les murs du haut et du bas de la carte sont composés de '1'
+ * Parcourt la première ligne (y=0) et la dernière ligne (y=height-1)
+ * pour vérifier que chaque case contient un mur ('1')
  */
 int	validate_top_bottom_walls(char **map, int width, int height)
 {
@@ -32,9 +32,9 @@ int	validate_top_bottom_walls(char **map, int width, int height)
 }
 
 /**
- * Valide que les murs de gauche et de droite de la carte sont entièrement composés de '1'
- * Parcourt chaque ligne pour vérifier que la première colonne (x=0) et la dernière 
- * colonne (x=width-1) contiennent des murs ('1')
+ * Valide que les murs de gauche et de droite sont composés de '1'
+ * Parcourt chaque ligne pour vérifier que la première colonne (x=0)
+ * et la dernière colonne (x=width-1) contiennent des murs ('1')
  */
 int	validate_left_right_walls(char **map, int width, int height)
 {
