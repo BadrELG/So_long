@@ -27,10 +27,6 @@
 - Gestion mémoire rigoureuse
 - Respect de la norme 42
 
-## 📚 À propos de l'École 42
-
-L'École 42 est une école d'informatique innovante et gratuite, basée sur l'apprentissage par projets et l'évaluation par les pairs. Aucun cours magistral, aucun professeur : les étudiants apprennent en codant et en s'entraidant.
-
 ### 🔧 Contraintes spécifiques 42
 - **Norme 42** : Règles strictes de codage (max 25 lignes/fonction, 5 fonctions/fichier, etc.)
 - **Pas de bibliothèques externes** sauf celles autorisées
@@ -175,4 +171,4 @@ Ce projet fait partie du tronc commun de l'École 42, visant à développer les 
 
 ---
 
-*Projet réalisé dans le cadre du cursus de l'École 42 - Apprentissage par la pratique* 🚀
+*Projet réalisé dans le cadre du cursus de l'École 42* 🚀
